@@ -6,26 +6,49 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:42:32 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/01 14:03:53 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/07/07 19:55:31 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
+// default constructor
 Animal::Animal()
 	: type("Animal")
 {
 	std::cout << "[Animal] created" << std::endl;
 }
 
-Animal::~Animal() {
+// copy constructor
+Animal::Animal(const Animal& other)
+	: type(other.type)
+{
+	std::cout << "[Animal] copy-constructed" << std::endl;
+}
+
+// copy assignment operator
+Animal& Animal::operator=(const Animal& other)
+{
+	if (this != &other)
+	{
+		type = other.type;
+	}
+	std::cout << "[Animal] copy-assigned" << std::endl;
+	return *this;
+}
+
+// virtual destructor
+Animal::~Animal()
+{
 	std::cout << "[Animal] deleted" << std::endl;
 }
 
-std::string Animal::getType() const {
+std::string Animal::getType() const
+{
 	return type;
 }
 
-void Animal::makeSound() const {
+void Animal::makeSound() const
+{
 	std::cout << "<generic animal sound>" << std::endl;
 }
