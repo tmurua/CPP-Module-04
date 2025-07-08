@@ -5,41 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/02 12:25:36 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/02 12:35:01 by tmurua           ###   ########.fr       */
+/*   Created: 2025/07/01 16:35:14 by tmurua            #+#    #+#             */
+/*   Updated: 2025/07/08 19:16:30 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
+// constructor
 Cat::Cat()
 {
 	type = "Cat";
-	std::cout << "[Cat] constructor called" << std::endl;
+	brain = new Brain();
+	std::cout << "[Cat] created" << std::endl;
 }
 
+// copy constructor
 Cat::Cat(const Cat& other)
 	: Animal(other)
 {
-	type = other.type;
-	std::cout << "[Cat] copy constructor called" << std::endl;
+	brain = new Brain(*other.brain);
+	std::cout << "[Cat] copy created" << std::endl;
 }
 
-Cat& Cat::operator=(const Cat& other)
-{
+// copy assignment operator
+Cat& Cat::operator=(const Cat& other) {
+	Animal::operator=(other);
 	if (this != &other) {
-		type = other.type;
+		*brain = *other.brain;
 	}
 	std::cout << "[Cat] assignment operator called" << std::endl;
 	return *this;
 }
 
-Cat::~Cat()
-{
-	std::cout << "[Cat] destructor called" << std::endl;
+// destructor
+Cat::~Cat() {
+	delete brain;
+	std::cout << "[Cat] deleted" << std::endl;
 }
 
-void Cat::makeSound() const
-{
+void Cat::makeSound() const {
 	std::cout << "Meow!" << std::endl;
+}
+
+Brain* Cat::getBrain() const {
+	return brain;
 }

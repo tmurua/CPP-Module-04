@@ -5,41 +5,53 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/02 12:25:39 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/02 12:34:27 by tmurua           ###   ########.fr       */
+/*   Created: 2025/07/01 16:35:08 by tmurua            #+#    #+#             */
+/*   Updated: 2025/07/08 19:17:45 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+// constructor
 Dog::Dog()
 {
 	type = "Dog";
-	std::cout << "[Dog] constructor called" << std::endl;
+	brain = new Brain();
+	std::cout << "[Dog] created" << std::endl;
 }
 
+// copy constructor
 Dog::Dog(const Dog& other)
 	: Animal(other)
 {
-	type = other.type;
-	std::cout << "[Dog] copy constructor called" << std::endl;
+	brain = new Brain(*other.brain);	// deep copy
+	std::cout << "[Dog] copy created" << std::endl;
 }
 
+// copy assignment operator
 Dog& Dog::operator=(const Dog& other)
 {
+	Animal::operator=(other);
 	if (this != &other) {
-		type = other.type;
+		*brain = *other.brain;			// deep copy into existing brain
 	}
 	std::cout << "[Dog] assignment operator called" << std::endl;
 	return *this;
 }
 
+// destructor
 Dog::~Dog()
 {
-	std::cout << "[Dog] destructor called" << std::endl;
+	delete brain;
+	std::cout << "[Dog] deleted" << std::endl;
 }
 
 void Dog::makeSound() const
 {
 	std::cout << "Woof!" << std::endl;
+}
+
+Brain* Dog::getBrain() const
+{
+	return brain;
 }

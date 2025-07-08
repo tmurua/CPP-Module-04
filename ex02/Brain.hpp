@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 16:30:33 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/01 16:30:40 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/07/08 18:20:47 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,28 @@
 #include <string>
 #include <iostream>
 
-class Brain {
+class Brain
+{
 private:
 	std::string ideas[100]; // array of ideas
 
 public:
-	// Constructor
+	// constructor
 	Brain();
 
-	// Copy constructor for deep copy
+	// copy constructor for deep copy
 	Brain(const Brain& other);
 
-	// Copy assignment operator for deep copy
+	// copy assignment operator for deep copy
 	Brain& operator=(const Brain& other);
 
-	// Destructor
+	// destructor
 	~Brain();
 
-	// Get an idea at the given index (0-99)
+	// get an idea at the given index (0-99)
 	std::string getIdea(int index) const;
 
-	// Set an idea at the given index (0-99)
+	// set an idea at the given index (0-99)
 	void setIdea(int index, const std::string& idea);
 };
 

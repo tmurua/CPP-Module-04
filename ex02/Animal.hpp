@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/02 12:25:33 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/02 12:32:15 by tmurua           ###   ########.fr       */
+/*   Created: 2025/07/01 12:38:37 by tmurua            #+#    #+#             */
+/*   Updated: 2025/07/08 20:33:15 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,26 @@
 class Animal
 {
 protected:
-	std::string type;
+	std::string type; // species/type name
 
 public:
-	Animal();                  // constructor
-	virtual ~Animal();         // virtual destructor
+	// default constructor: initializes type to "Animal"
+	Animal();
 
+	// copy constructor: creates a new Animal as a copy of another
+	Animal(const Animal& other);
+
+	// copy assignment operator: assign one Animal to another (a = b;)
+	Animal& operator=(const Animal& other);
+
+	// virtual destructor: ensures derived destructors are called
+	virtual ~Animal();
+
+	// return the type of the animal
 	std::string getType() const;
-	virtual void makeSound() const = 0; // pure virtual
+
+	// make sound: MUST be overridden by derived classes
+	virtual void makeSound() const = 0;
 };
 
 #endif
