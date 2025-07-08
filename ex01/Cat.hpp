@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 16:35:10 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/07 19:43:21 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/07/08 18:25:06 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,27 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal {
+// Cat is an Animal that says "Meow"
+class Cat : public Animal
+{
 private:
 	Brain* brain; // dynamic Brain
 
 public:
-	// constructor
+	// constructor: sets type to "Cat"
 	Cat();
 
-	// copy constructor
+	// copy constructor: creates a new Cat as a copy of another
 	Cat(const Cat& other);
 
-	// copy assignment operator
+	// copy assignment operator: assign one Cat to another (a = b;)
 	Cat& operator=(const Cat& other);
 
-	// destructor
+	// destructor: announces destruction
 	~Cat();
 
-	void makeSound() const;          // "Meow!"
-	Brain* getBrain() const;         // access to brain
+	void makeSound() const;		// "Meow!"
+	Brain* getBrain() const;	// access to brain
 };
 
 #endif

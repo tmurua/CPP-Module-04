@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 13:18:09 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/07 19:50:58 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/07/08 18:07:26 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ protected:
 	std::string type; // species/type name
 
 public:
-	// default constructor: initializes type to empty or default
+	// default constructor: sets type to "WrongAnimal"
 	WrongAnimal();
 
 	// copy constructor: creates a new WrongAnimal as a copy of another

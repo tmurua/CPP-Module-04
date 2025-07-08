@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:42:32 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/07 19:55:31 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/07/08 17:50:44 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ Animal::Animal(const Animal& other)
 Animal& Animal::operator=(const Animal& other)
 {
 	if (this != &other)
-	{
 		type = other.type;
-	}
 	std::cout << "[Animal] copy-assigned" << std::endl;
 	return *this;
 }

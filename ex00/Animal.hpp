@@ -6,19 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:38:37 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/07 19:51:02 by tmurua           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/01 12:38:37 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/07 19:45:00 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/07/08 17:52:03 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +23,7 @@ protected:
 	std::string type; // species/type name
 
 public:
-	// default constructor: initializes type to empty or default
+	// default constructor: initializes type to "Animal"
 	Animal();
 
 	// copy constructor: creates a new Animal as a copy of another

@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:38:37 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/01 13:49:41 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/07/08 17:52:23 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,29 @@
 #include <string>
 #include <iostream>
 
-class Animal {
+// base class for all animals
+class Animal
+{
 protected:
-	std::string type;
+	std::string type; // species/type name
 
 public:
-	// Default constructor
+	// default constructor: initializes type to "Animal"
 	Animal();
 
-	// Virtual destructor
+	// copy constructor: creates a new Animal as a copy of another
+	Animal(const Animal& other);
+
+	// copy assignment operator: assign one Animal to another (a = b;)
+	Animal& operator=(const Animal& other);
+
+	// virtual destructor: ensures derived destructors are called
 	virtual ~Animal();
 
-	// Return the type of the animal
+	// return the type of the animal
 	std::string getType() const;
 
-	// Make sound: to be overridden by derived classes
+	// make sound: can be overridden by derived classes
 	virtual void makeSound() const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 13:21:46 by tmurua            #+#    #+#             */
-/*   Updated: 2025/07/01 13:53:36 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/07/07 19:52:25 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,23 @@
 
 #include "WrongAnimal.hpp"
 
-class WrongCat : public WrongAnimal {
+// WrongCat attempts to override makeSound but base method is non-virtual
+class WrongCat : public WrongAnimal
+{
 public:
-	// Constructor
+	// constructor: sets type to "WrongCat"
 	WrongCat();
 
-	// Destructor
+	// copy constructor: creates a new WrongCat as a copy of another
+	WrongCat(const WrongCat& other);
+
+	// copy assignment operator: assign one WrongCat to another (a = b;)
+	WrongCat& operator=(const WrongCat& other);
+
+	// destructor: announces destruction
 	~WrongCat();
 
-	// Attempted override (non-virtual in base)
+	// attempted override: will instead call WrongAnimal::makeSound()
 	void makeSound() const;
 };
 
